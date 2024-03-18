@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Icon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,10 +14,7 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(Icon::class)
-                ->nullable()
-                ->constrained()
-                ->nullOnDelete();
+            $table->string('color', 7);
             $table->timestamps();
         });
     }

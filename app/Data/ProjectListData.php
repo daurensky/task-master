@@ -8,8 +8,9 @@ use Spatie\LaravelData\Data;
 class ProjectListData extends Data
 {
     public function __construct(
+        public int    $id,
         public string $name,
-        public ?string $icon,
+        public string $color,
     )
     {
     }
@@ -17,8 +18,9 @@ class ProjectListData extends Data
     public static function fromModel(Project $project): ProjectListData
     {
         return new self(
+            id: $project->id,
             name: $project->name,
-            icon: $project->icon?->name,
+            color: $project->color,
         );
     }
 }

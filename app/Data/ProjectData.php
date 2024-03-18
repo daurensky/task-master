@@ -8,8 +8,8 @@ use Spatie\LaravelData\Data;
 class ProjectData extends Data
 {
     public function __construct(
-        public string $name,
-        public ?string $icon,
+        public string  $name,
+        public string $color,
     )
     {
     }
@@ -18,7 +18,7 @@ class ProjectData extends Data
     {
         return new self(
             name: $project->name,
-            icon: $project->icon?->name,
+            color: $project->color,
         );
     }
 }
